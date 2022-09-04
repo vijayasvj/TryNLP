@@ -5,7 +5,6 @@ import os
 # NLP Pkgs
 from textblob import TextBlob 
 import spacy
-from gensim.summarization.summarizer import summarize
 
 # Sumy Summary Pkg
 from sumy.parsers.plaintext import PlaintextParser
@@ -50,10 +49,6 @@ def entity_analyzer(my_text):
 	return allData
 
 
-""" NLP Based App with Streamlit """
-
-
-
 # Tokenization
 if st.checkbox("Show Tokens and Lemma"):
     st.subheader("Tokenize Your Text")
@@ -67,7 +62,7 @@ if st.checkbox("Show Tokens and Lemma"):
 if st.checkbox("Show Named Entities"):
     st.subheader("Analyze Your Text")
 
-    message = st.text_area("Enter Text","Type Here ..")
+    message = st.text_area("Enter Text","Type Here ...")
     if st.button("Extract"):
         entity_result = entity_analyzer(message)
         st.json(entity_result)
@@ -76,8 +71,8 @@ if st.checkbox("Show Named Entities"):
 if st.checkbox("Show Sentiment Analysis"):
     st.subheader("Analyse Your Text")
 
-    message = st.text_area("Enter Text","Type Here ..")
-    if st.button("Analyze"):
+    message = st.text_area("Enter Text","Type Here ....")
+    if st.button("Find sentiment"):
         blob = TextBlob(message)
         result_sentiment = blob.sentiment
         st.success(result_sentiment)
@@ -86,20 +81,10 @@ if st.checkbox("Show Sentiment Analysis"):
 if st.checkbox("Show Text Summarization"):
     st.subheader("Summarize Your Text")
 
-    message = st.text_area("Enter Text","Type Here ..")
-    summary_options = st.selectbox("Choose Summarizer",['sumy','gensim'])
+    message = st.text_area("Enter Text","Type Here .....")
+    summary_options = st.selectbox("Choose Summarizer",['sumy'])
     if st.button("Summarize"):
-        if summary_options == 'sumy':
-            st.text("Using Sumy Summarizer ..")
-            summary_result = sumy_summarizer(message)
-        elif summary_options == 'gensim':
-            st.text("Using Gensim Summarizer ..")
-            summary_result = summarize(rawtext)
-        else:
-            st.warning("Using Default Summarizer")
-            st.text("Using Gensim Summarizer ..")
-            summary_result = summarize(rawtext)
-
-    
+        st.text("Using Sumy Summarizer ..")
+        summary_result = sumy_summarizer(message)
         st.success(summary_result)
 
