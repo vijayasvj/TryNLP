@@ -12,6 +12,14 @@ from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 
+# Title
+st.title("NLPiffy with Streamlit")
+st.subheader("Natural Language Processing On the Go..")
+st.markdown("""
+    #### Description
+    + This is a Natural Language Processing(NLP) Based App useful for basic NLP task
+    Tokenization,NER,Sentiment,Summarization
+    """)
 
 # Function for Sumy Summarization
 def sumy_summarizer(docx):
@@ -44,14 +52,7 @@ def entity_analyzer(my_text):
 
 """ NLP Based App with Streamlit """
 
-# Title
-st.title("NLPiffy with Streamlit")
-st.subheader("Natural Language Processing On the Go..")
-st.markdown("""
-    #### Description
-    + This is a Natural Language Processing(NLP) Based App useful for basic NLP task
-    Tokenization,NER,Sentiment,Summarization
-    """)
+
 
 # Tokenization
 if st.checkbox("Show Tokens and Lemma"):
