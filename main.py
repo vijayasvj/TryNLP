@@ -5,7 +5,7 @@ import os
 # NLP Pkgs
 from textblob import TextBlob 
 import spacy
-from gensim.summarization import summarize
+from gensim.summarization.summarizer import summarize
 
 # Sumy Summary Pkg
 from sumy.parsers.plaintext import PlaintextParser
