@@ -1,12 +1,7 @@
 import streamlit as st 
 import os
-
-
-# NLP Pkgs
 from textblob import TextBlob 
 import spacy
-
-# Sumy Summary Pkg
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
